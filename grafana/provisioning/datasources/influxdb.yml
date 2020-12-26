@@ -15,13 +15,13 @@ datasources:
   - name: TelegrafDB
     orgId: 1
     id: 1
-    type: "influxdb"
-    access: "proxy"
-    typeLogoUrl: "public/app/plugins/datasource/influxdb/img/influxdb_logo.svg"
-    url: "http://influxdb:8086"
-    password: "admin"
-    user: "password"
-    database: "telegraf"
+    type: influxdb
+    access: proxy
+    typeLogoUrl: public/app/plugins/datasource/influxdb/img/influxdb_logo.svg
+    url: http://influxdb:8086
+    password: admin
+    user: password
+    database: telegraf
     basicAuth: false
     isDefault: true
     readOnly: false

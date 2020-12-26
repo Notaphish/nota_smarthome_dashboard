@@ -1,1 +1,1 @@
-docker-compose -f docker-compose.yml -f speedtest-grafana/docker-compose.yml -f ruuvitag/docker-compose.yml up
+docker-compose -f docker-compose.yml -f speedtest-grafana/docker-compose.yml -f ruuvitag/docker-compose.yml up -d
