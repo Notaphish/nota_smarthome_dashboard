@@ -2,6 +2,7 @@ apiVersion: 1
 
 deleteDatasources:
   - name: InfluxDB
+  - name: TelegrafDB
 
 datasources:
   - name: InfluxDB
@@ -11,3 +12,16 @@ datasources:
     user: admin
     password: password
     url: http://influxdb:8086
+  - name: TelegrafDB
+    orgId: 1
+    id: 1
+    type: "influxdb"
+    access: "proxy"
+    typeLogoUrl: "public/app/plugins/datasource/influxdb/img/influxdb_logo.svg"
+    url: "http://influxdb:8086"
+    password: "admin"
+    user: "password"
+    database: "telegraf"
+    basicAuth: false
+    isDefault: true
+    readOnly: false

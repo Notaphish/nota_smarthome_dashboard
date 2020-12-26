@@ -1,2 +1,2 @@
 CREATE DATABASE speedtest;
-CREATE DATABASE ruuvi;
+CREATE DATABASE telegraf;
