@@ -17,7 +17,7 @@ services:
     volumes:
       - ./ruuvitag/hivemq-mqtt-web-client/config.js:/var/www/html/config.js
     ports:
-      - "3002:80"
+      - "80"
     depends_on:
       - mosquitto
   bt-mqtt-gateway:
@@ -42,7 +42,7 @@ services:
     volumes:
       - ./ruuvitag/node-red:/data
     ports:
-      - "1880:1880"
+      - "1880"
     environment:
       - TZ=Europe/London
     # Install node-red-dashboard before starting Node-RED

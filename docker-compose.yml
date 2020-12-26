@@ -10,6 +10,8 @@ services:
       - "80:8080"
     depends_on:
       - grafana
+      - hivemq-mqtt-web-client
+      - node-red
     
 
   influxdb:
@@ -33,6 +35,7 @@ services:
     ports:
       - "3000"
     environment:
+      # required because grafana is behind nginx
       - "GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s:/grafana"
       - "GF_SECURITY_ADMIN_PASSWORD=admin"
       - "GF_AUTH_ANONYMOUS_ENABLED=true"
