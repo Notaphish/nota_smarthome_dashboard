@@ -15,7 +15,9 @@ e.g. `./dc.sh up -d` or `./dc.sh down`
 ### Access things
 
 http://localhost/grafana - access the grafana dashboard
+
 http://localhost/hive - access the hive ui for monitor incoming messages
+
 http://localhost/node-red - viewing the node-red ui
 
 
