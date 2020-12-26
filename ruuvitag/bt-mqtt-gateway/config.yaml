@@ -12,7 +12,7 @@ manager:
       args:
         devices:
           tag1: CB:3D:4E:84:99:CA
-          tag2: DB:6F:A5:8A:2C:15
-          tag3: EA:29:2C:63:45:DB
+          Living-room-1: DB:6F:A5:8A:2C:15
+          Bedroom: EA:29:2C:63:45:DB
         topic_prefix: ruuvitag
       update_interval: 1

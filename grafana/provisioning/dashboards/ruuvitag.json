@@ -101,7 +101,7 @@
           ]
         },
         {
-          "alias": "RuuviTag 2",
+          "alias": "Living room",
           "groupBy": [
             {
               "params": [
@@ -139,12 +139,12 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag2/temperature"
+              "value": "bt-mqtt-gateway/ruuvitag/Living-room-1/temperature"
             }
           ]
         },
         {
-          "alias": "RuuviTag 3",
+          "alias": "Bedroom",
           "groupBy": [
             {
               "params": [
@@ -182,7 +182,7 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag3/temperature"
+              "value": "bt-mqtt-gateway/ruuvitag/Bedroom/temperature"
             }
           ]
         }
@@ -312,7 +312,7 @@
           ]
         },
         {
-          "alias": "RuuviTag 2",
+          "alias": "Living room",
           "groupBy": [
             {
               "params": [
@@ -350,12 +350,12 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag2/humidity"
+              "value": "bt-mqtt-gateway/ruuvitag/Living-room-1/humidity"
             }
           ]
         },
         {
-          "alias": "RuuviTag 3",
+          "alias": "Bedroom",
           "groupBy": [
             {
               "params": [
@@ -393,7 +393,7 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag3/humidity"
+              "value": "bt-mqtt-gateway/ruuvitag/Bedroom/humidity"
             }
           ]
         }
@@ -616,14 +616,14 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag2/temperature"
+              "value": "bt-mqtt-gateway/ruuvitag/Living-room-1/temperature"
             }
           ]
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Temperature 2",
+      "title": "Living room Temperature",
       "type": "gauge"
     },
     {
@@ -704,14 +704,14 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag3/temperature"
+              "value": "bt-mqtt-gateway/ruuvitag/Bedroom/temperature"
             }
           ]
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Temperature 3",
+      "title": "Bedroom Temperature",
       "type": "gauge"
     },
     {
@@ -1001,14 +1001,14 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag2/humidity"
+              "value": "bt-mqtt-gateway/ruuvitag/Living-room-1/humidity"
             }
           ]
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Humidity 2",
+      "title": "Living room Humidity",
       "type": "gauge"
     },
     {
@@ -1100,14 +1100,14 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag3/humidity"
+              "value": "bt-mqtt-gateway/ruuvitag/Bedroom/humidity"
             }
           ]
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Humidity 3",
+      "title": "Bedroom Humidity",
       "type": "gauge"
     },
     {
@@ -1297,7 +1297,7 @@
           ]
         },
         {
-          "alias": "RuuviTag 2",
+          "alias": "Living room",
           "groupBy": [
             {
               "params": [
@@ -1335,12 +1335,12 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag2/battery"
+              "value": "bt-mqtt-gateway/ruuvitag/Living-room-1/battery"
             }
           ]
         },
         {
-          "alias": "RuuviTag 3",
+          "alias": "Bedroom",
           "groupBy": [
             {
               "params": [
@@ -1378,7 +1378,7 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag3/battery"
+              "value": "bt-mqtt-gateway/ruuvitag/Bedroom/battery"
             }
           ]
         },
