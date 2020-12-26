@@ -8,7 +8,9 @@ services:
     volumes:
       - ./ruuvitag/mosquitto:/mosquitto
     ports:
+      # exposed for bt-mgtt to access it from the host network
       - "1883:1883"
+      # exposed for hive ui to connect to see incoming message
       - "9001:9001"
   hivemq-mqtt-web-client:
     image: koenvervloesem/hivemq-mqtt-web-client
