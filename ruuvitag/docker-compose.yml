@@ -44,7 +44,7 @@ services:
     ports:
       - "1880:1880"
     environment:
-      - TZ=Europe/Brussels
+      - TZ=Europe/London
     # Install node-red-dashboard before starting Node-RED
     entrypoint: /bin/bash
     command: ["-c", "npm install node-red-dashboard && npm start -- --userDir /data"]
