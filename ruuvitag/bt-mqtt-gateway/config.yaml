@@ -1,0 +1,18 @@
+mqtt:
+  host: localhost
+  port: 1883
+  topic_prefix: bt-mqtt-gateway
+  client_id: bt-mqtt-gateway
+  availability_topic: availability
+
+manager:
+  command_timeout: 30
+  workers:
+    ruuvitag:
+      args:
+        devices:
+          tag1: CB:3D:4E:84:99:CA
+          tag2: DB:6F:A5:8A:2C:15
+          tag3: EA:29:2C:63:45:DB
+        topic_prefix: ruuvitag
+      update_interval: 1

@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    restart: always
+    volumes:
+      - ./ruuvitag/mosquitto:/mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+  hivemq-mqtt-web-client:
+    image: koenvervloesem/hivemq-mqtt-web-client
+    container_name: hivemq-mqtt-web-client
+    restart: always
+    volumes:
+      - ./ruuvitag/hivemq-mqtt-web-client/config.js:/var/www/html/config.js
+    ports:
+      - "3002:80"
+    depends_on:
+      - mosquitto
+  bt-mqtt-gateway:
+    image: zewelor/bt-mqtt-gateway
+    container_name: bt-mqtt-gateway
+    restart: always
+    volumes:
+      - ./ruuvitag/bt-mqtt-gateway/config.yaml:/config.yaml
+    # These capabilities are needed for Bluetooth
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+      - SYS_RESOURCE
+    # The Docker host should have working Bluetooth
+    network_mode: host
+    depends_on:
+      - mosquitto
+  node-red:
+    image: nodered/node-red
+    container_name: node-red
+    restart: always
+    volumes:
+      - ./ruuvitag/node-red:/data
+    ports:
+      - "1880:1880"
+    environment:
+      - TZ=Europe/Brussels
+    # Install node-red-dashboard before starting Node-RED
+    entrypoint: /bin/bash
+    command: ["-c", "npm install node-red-dashboard && npm start -- --userDir /data"]
+    depends_on:
+      - mosquitto
+  telegraf:
+    image: telegraf
+    container_name: telegraf
+    restart: always
+    volumes:
+      - ./ruuvitag/telegraf:/etc/telegraf
+    depends_on:
+      - influxdb
+      - mosquitto

@@ -3,14 +3,7 @@ data/influxdb/*
 data/grafana/*
 .env
 
-ruuvitag/grafana/var/grafana.db
-ruuvitag/grafana/var/plugins
-ruuvitag/grafana/var/png
-ruuvitag/influxdb/
-ruuvitag/node-red/.config.json
-ruuvitag/node-red/.config.json.backup
-ruuvitag/node-red/.flows.json.backup
-ruuvitag/node-red/.sessions.json
+ruuvitag/node-red/.*
 ruuvitag/node-red/flows_cred.json
 ruuvitag/node-red/package.json
 ruuvitag/node-red/settings.js
