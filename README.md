@@ -12,13 +12,20 @@ At the moment there is a shell script that just has the docker-compose command i
 
 e.g. `./dc.sh up -d` or `./dc.sh down`
 
-#### Ruuvitag monitoring
+### Access things
+
+http://localhost/grafana - access the grafana dashboard
+http://localhost/hive - access the hive ui for monitor incoming messages
+http://localhost/node-red - viewing the node-red ui
+
+
+### Ruuvitag monitoring
 
 I've used the docker-compose setup from https://github.com/koenvervloesem/ruuvitag-demo and stripped out all the demo related parts.
 
 Pulled the influxdb and grafan part of this up a level
 
-#### Speedtest grafana 
+### Speedtest grafana 
 
 Used to have this running in isolation https://github.com/frdmn/docker-speedtest-grafana but I've pulled into into this repo ( stripping out everything I didn't need )
 
