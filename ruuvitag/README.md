@@ -85,7 +85,7 @@ sudo hcitool lescan
 
 Or you can run the Ruuvi Station app [on Android](https://github.com/ruuvi/com.ruuvi.station) or [on iOS](https://github.com/ruuvi/com.ruuvi.station.ios) and have a look at the MAC address in the tag settings of each RuuviTag.
 
-The Node-RED flow and Grafana dashboard suppose that you have four tags, called `tag1`, `Living-room-1`, `Bedroom` and `tag4`. So I suggest that initially you leave these names in `bt-mqtt-gateway/config.yaml`. After starting up the demo, you can always change the configuration.
+The Node-RED flow and Grafana dashboard suppose that you have four tags, called `spare-bedroom`, `Living-room-1`, `Bedroom` and `tag4`. So I suggest that initially you leave these names in `bt-mqtt-gateway/config.yaml`. After starting up the demo, you can always change the configuration.
 
 ## Starting the demo
 Starting the demo is easy, as it's using Docker Compose:

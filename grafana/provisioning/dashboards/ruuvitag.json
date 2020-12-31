@@ -58,7 +58,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "RuuviTag 1",
+          "alias": "Spare Bedroom",
           "groupBy": [
             {
               "params": [
@@ -96,7 +96,7 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag1/temperature"
+              "value": "bt-mqtt-gateway/ruuvitag/spare-bedroom/temperature"
             }
           ]
         },
@@ -269,7 +269,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "RuuviTag 1",
+          "alias": "Spare Bedroom",
           "groupBy": [
             {
               "params": [
@@ -307,7 +307,7 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag1/humidity"
+              "value": "bt-mqtt-gateway/ruuvitag/spare-bedroom/humidity"
             }
           ]
         },
@@ -528,7 +528,7 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag1/temperature"
+              "value": "bt-mqtt-gateway/ruuvitag/spare-bedroom/temperature"
             }
           ]
         }
@@ -902,7 +902,7 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag1/humidity"
+              "value": "bt-mqtt-gateway/ruuvitag/spare-bedroom/humidity"
             }
           ]
         }
@@ -1254,7 +1254,7 @@
       "pluginVersion": "6.5.0-pre",
       "targets": [
         {
-          "alias": "RuuviTag 1",
+          "alias": "Spare Bedroom",
           "groupBy": [
             {
               "params": [
@@ -1292,7 +1292,7 @@
             {
               "key": "topic",
               "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/tag1/battery"
+              "value": "bt-mqtt-gateway/ruuvitag/spare-bedroom/battery"
             }
           ]
         },
