@@ -44,6 +44,6 @@ Pulled the influxdb and grafana parts of this up a level too.
 
 Based on https://github.com/stevenewey/octograph but refactored to use my the single grafana and influxdb.
 
-You can build the docker image for running it via the [build script](octograph/build_builder.sh) and then run it via the [run script](octograph/run_octograph.sh). The run script makes sure to run on the same network as influxdb.
+You can build and run the docker image for this via the [Makefile](octograph/Makefile) in the folder. The run target makes sure to run on the same network as influxdb
 
 I have the run script being called once a day from cron.
