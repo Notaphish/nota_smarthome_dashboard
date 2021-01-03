@@ -6,13 +6,10 @@ services:
     image: nginx:latest
     volumes: 
       - "./nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
+      - "./index.html:/usr/share/nginx/html/index.html:ro"
     ports: 
       - "80:80"
-    depends_on:
-      - grafana
-      - hivemq-mqtt-web-client
-      - node-red
-    
+    restart: always
 
   influxdb:
     container_name: influxdb
