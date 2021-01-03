@@ -2,6 +2,7 @@ apiVersion: 1
 
 deleteDatasources:
   - name: InfluxDB
+  - name: OctoDB
   - name: TelegrafDB
 
 datasources:
@@ -12,6 +13,11 @@ datasources:
     user: admin
     password: password
     url: http://influxdb:8086
+  - name: OctoDB
+    type: influxdb
+    access: proxy
+    database: energy
+    url: http://influxdb:8086    
   - name: TelegrafDB
     orgId: 1
     id: 1
