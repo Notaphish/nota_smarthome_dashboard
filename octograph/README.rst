@@ -1,8 +1,6 @@
 Octograph
 ---------
 
-add makefile for the two docker commands
-
 Python tool for downloading energy consumption data from the
 `Octopus Energy API`_ and loading it into `InfluxDB`_.
 
