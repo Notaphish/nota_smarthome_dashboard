@@ -7,3 +7,5 @@ ruuvitag/node-red/.*
 ruuvitag/node-red/flows_cred.json
 ruuvitag/node-red/package.json
 ruuvitag/node-red/settings.js
+
+octograph.ini
