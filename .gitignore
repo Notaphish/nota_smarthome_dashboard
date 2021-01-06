@@ -1,4 +1,4 @@
-
+.vscode
 data/influxdb/*
 data/grafana/*
 .env
