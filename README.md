@@ -8,7 +8,7 @@ With nginx, i've stripped down the number of exposed to the bare minimum ( most 
 
 Don't use this for anything "production" wise, I just run all this off a raspberry pi on my network ( its not exposed externally at all). Grafana doesn't have a password and the influxdb uses trash pwds too.
 
-[Image of the main dashboard](./home_dashboard_example.png)
+![Image of the main dashboard](./home_dashboard_example.png)
 
 #### Start/stop most things
 
