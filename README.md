@@ -1,20 +1,22 @@
 ### Nota smarthome dashboard
 
-Creating a dashboard/common place for my smart home things and bit of a learning exercise with nginx.
+Creating a dashboard/common place for my smart home things and bit of a learning exercise, currently has temperature data from Ruuvitags, internet speed test results and Octopus energy readings. Any of the following folders that aren't needed can be deleted ( `octograph`/`ruuvitag`/`speedtest-grafana`), just remember update `dc.sh` so it doesn't look for those compose files.
 
-Recently got a bunch of Ruuvitags for xmas and wanted to make a nice dashboard for the household, which is how this began. I already had the speedtest image running and uploading to grafana so just merged that with the ruuvitag repo initially.
+Recently got a bunch of Ruuvitags and wanted to make a nice dashboard for everyone in the house to look at. I already had the speedtest image running and uploading to influxdb/grafana so just merged that with the ruuvitag repo initially.
 
-Suspect I could use home_assistant for alot of this but given so much was already in docker it was pretty straightforward to do it like this - also learning!
-
-Goal is to have as many of these dashboards served via nginx and then have a frontend that would let you navigate to each one - ideally make a nice little homedashboard for it.
+With nginx, i've stripped down the number of exposed to the bare minimum ( most are for the bluetooth -> mosquitto containers) and made everything easily accessible via url routes.
 
 Don't use this for anything "production" wise, I just run all this off a raspberry pi on my network ( its not exposed externally at all). Grafana doesn't have a password and the influxdb uses trash pwds too.
 
-#### Start/stop
+![Image of the main dashboard](./home_dashboard_example.png)
+
+#### Start/stop most things
 
 At the moment there is a shell script that just has the docker-compose command in it ( so I don't have to type it, atm its a bit wordy with all the different docker-compose files in use )
 
 e.g. `./dc.sh up -d` or `./dc.sh down`
+
+Should probably move the Makefile up... when I get some time
 
 ### Access things
 
@@ -23,7 +25,6 @@ http://localhost/grafana - access the grafana dashboard
 http://localhost/hive - access the hive ui for monitor incoming messages from the bt-mqtt-gateway
 
 http://localhost/node-red - viewing the node-red ui for viewing message related flows
-
 
 ### Ruuvitag monitoring
 
