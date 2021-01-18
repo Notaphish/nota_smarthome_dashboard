@@ -1,0 +1,24 @@
+{
+  "name": "home_dashboard",
+  "version": "0.0.0",
+  "description": "poll weather data to database",
+  "main": "weather.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Notaphish/nota_smarthome_dashboard.git"
+  },
+  "keywords": [
+    "weather",
+    "docker",
+    "influxdb"
+  ],
+  "author": "Notaphish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Notaphish/nota_smarthome_dashboard/issues"
+  },
+  "homepage": "https://github.com/Notaphish/nota_smarthome_dashboard#readme"
+}
