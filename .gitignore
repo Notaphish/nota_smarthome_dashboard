@@ -9,3 +9,5 @@ ruuvitag/node-red/package.json
 ruuvitag/node-red/settings.js
 
 octograph.ini
+
+node_modules/
