@@ -48,3 +48,11 @@ Based on https://github.com/stevenewey/octograph but refactored to use my the si
 You can build and run the docker image for this via the [Makefile](octograph/Makefile) in the folder. The run target makes sure to run on the same network as influxdb
 
 I have the run script being called once a day from cron.
+
+### Weather
+
+Based on https://github.com/Notaphish/nota_openweather_influxdb but refactored to use a single grafana and influxdb
+
+Build using the [Makefile](weather/Makefile) in the folder. The `run` target makes sure to run on the same network as influxdb. I've set `weather` to use the same influxdb db as the ruuvitag data ( so I can include it in the same graph )
+
+I have the `run` target being called every 5 minutes from cron.

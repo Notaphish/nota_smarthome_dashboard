@@ -1,0 +1,20 @@
+{
+  "name": "nota_openweathermap_influxdb",
+  "version": "1.0.0",
+  "description": "Fetch data from openweatherapi and write to to influxdb",
+  "main": "app.js",
+  "author": "notaphish",
+  "license": "MIT",
+  "scripts" : {
+    "start": "node app.js",
+    "start-debug": "node --inspect app.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "got": "^11.8.1",
+    "influx": "^5.6.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
+}
