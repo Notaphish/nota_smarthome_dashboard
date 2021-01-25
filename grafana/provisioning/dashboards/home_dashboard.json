@@ -230,12 +230,301 @@
       }
     },
     {
-      "datasource": "TelegrafDB",
+      "datasource": null,
       "gridPos": {
         "h": 5,
         "w": 4,
         "x": 12,
         "y": 0
+      },
+      "id": 8,
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 1,
+            "mappings": [],
+            "max": 25,
+            "min": 10,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 25
+                }
+              ]
+            },
+            "unit": "celsius"
+          },
+          "overrides": [],
+          "values": false
+        },
+        "orientation": "auto",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.7.2",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ruuvitag",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "topic",
+              "operator": "=",
+              "value": "bt-mqtt-gateway/ruuvitag/Bedroom/temperature"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Bedroom Temperature",
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 1,
+            "mappings": [],
+            "max": 25,
+            "min": 10,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "celsius"
+          },
+          "overrides": [],
+          "values": false
+        },
+        "orientation": "auto",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.7.2",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ruuvitag",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "topic",
+              "operator": "=",
+              "value": "bt-mqtt-gateway/ruuvitag/Living-room-1/temperature"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Living room Temperature",
+      "type": "gauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": null,
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 0
+      },
+      "id": 16,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 1,
+            "mappings": [
+              {
+                "id": 0,
+                "op": "=",
+                "text": "N/A",
+                "type": 1,
+                "value": "null"
+              }
+            ],
+            "max": 25,
+            "min": 10,
+            "nullValueMode": "connected",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "celsius"
+          },
+          "overrides": [],
+          "values": false
+        },
+        "orientation": "horizontal",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.7.2",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ruuvitag",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "topic",
+              "operator": "=",
+              "value": "bt-mqtt-gateway/ruuvitag/spare-bedroom/temperature"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Spare bedroom temperature",
+      "type": "gauge"
+    },
+    {
+      "datasource": "TelegrafDB",
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 12,
+        "y": 5
       },
       "id": 22,
       "options": {
@@ -332,7 +621,7 @@
         "h": 5,
         "w": 8,
         "x": 16,
-        "y": 0
+        "y": 5
       },
       "hiddenSeries": false,
       "id": 20,
@@ -445,295 +734,6 @@
         "align": false,
         "alignLevel": null
       }
-    },
-    {
-      "datasource": null,
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 12,
-        "y": 5
-      },
-      "id": 8,
-      "options": {
-        "fieldOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "decimals": 1,
-            "mappings": [],
-            "max": 25,
-            "min": 10,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 25
-                }
-              ]
-            },
-            "unit": "celsius"
-          },
-          "overrides": [],
-          "values": false
-        },
-        "orientation": "auto",
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "6.7.2",
-      "targets": [
-        {
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ruuvitag",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "topic",
-              "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/Bedroom/temperature"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Bedroom Temperature",
-      "type": "gauge"
-    },
-    {
-      "datasource": null,
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 16,
-        "y": 5
-      },
-      "id": 6,
-      "options": {
-        "fieldOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "decimals": 1,
-            "mappings": [],
-            "max": 25,
-            "min": 10,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                }
-              ]
-            },
-            "unit": "celsius"
-          },
-          "overrides": [],
-          "values": false
-        },
-        "orientation": "auto",
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "6.7.2",
-      "targets": [
-        {
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ruuvitag",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "topic",
-              "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/Living-room-1/temperature"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Living room Temperature",
-      "type": "gauge"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": null,
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 20,
-        "y": 5
-      },
-      "id": 16,
-      "links": [],
-      "options": {
-        "fieldOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "decimals": 1,
-            "mappings": [
-              {
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 25,
-            "min": 10,
-            "nullValueMode": "connected",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "celsius"
-          },
-          "overrides": [],
-          "values": false
-        },
-        "orientation": "horizontal",
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "6.7.2",
-      "targets": [
-        {
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ruuvitag",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "topic",
-              "operator": "=",
-              "value": "bt-mqtt-gateway/ruuvitag/spare-bedroom/temperature"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Spare bedroom temperature",
-      "type": "gauge"
     },
     {
       "aliasColors": {},
@@ -1476,5 +1476,5 @@
   "variables": {
     "list": []
   },
-  "version": 14
+  "version": 17
 }
