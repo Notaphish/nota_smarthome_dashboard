@@ -255,12 +255,16 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
+                  "color": "dark-blue",
                   "value": null
                 },
                 {
-                  "color": "red",
-                  "value": 25
+                  "color": "dark-green",
+                  "value": 15
+                },
+                {
+                  "color": "dark-red",
+                  "value": 18
                 }
               ]
             },
@@ -305,7 +309,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
@@ -349,8 +353,16 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
+                  "color": "dark-blue",
                   "value": null
+                },
+                {
+                  "color": "dark-green",
+                  "value": 18
+                },
+                {
+                  "color": "dark-red",
+                  "value": 20.5
                 }
               ]
             },
@@ -395,7 +407,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
@@ -450,12 +462,16 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
+                  "color": "dark-blue",
                   "value": null
                 },
                 {
-                  "color": "red",
-                  "value": 80
+                  "color": "dark-green",
+                  "value": 15
+                },
+                {
+                  "color": "dark-red",
+                  "value": 18
                 }
               ]
             },
@@ -500,7 +516,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
@@ -530,10 +546,10 @@
       "options": {
         "fieldOptions": {
           "calcs": [
-            "mean"
+            "lastNotNull"
           ],
           "defaults": {
-            "decimals": 2,
+            "decimals": 1,
             "mappings": [],
             "max": 30,
             "min": -10,
@@ -541,16 +557,20 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "blue",
+                  "color": "dark-blue",
                   "value": null
                 },
                 {
-                  "color": "orange",
-                  "value": 5
+                  "color": "light-blue",
+                  "value": 0
                 },
                 {
-                  "color": "red",
-                  "value": 22
+                  "color": "orange",
+                  "value": 10
+                },
+                {
+                  "color": "semi-dark-red",
+                  "value": 18
                 }
               ]
             },
@@ -595,7 +615,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
@@ -610,12 +630,10 @@
     {
       "aliasColors": {},
       "bars": false,
-      "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "TelegrafDB",
-      "description": "",
-      "fill": 0,
+      "datasource": "InfluxDB",
+      "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
@@ -624,31 +642,26 @@
         "y": 5
       },
       "hiddenSeries": false,
-      "id": 20,
+      "id": 14,
       "legend": {
+        "alignAsTable": false,
         "avg": false,
-        "current": true,
-        "max": true,
-        "min": true,
+        "current": false,
+        "max": false,
+        "min": false,
         "show": true,
         "total": false,
-        "values": true
+        "values": false
       },
       "lines": true,
-      "linewidth": 1,
+      "linewidth": 2,
       "links": [],
-      "nullPointMode": "connected",
+      "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-          {
-            "title": "",
-            "url": ""
-          }
-        ]
+        "dataLinks": []
       },
       "percentage": false,
-      "pluginVersion": "6.7.2",
-      "pointradius": 2,
+      "pointradius": 5,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [],
@@ -657,7 +670,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Outside tmp",
+          "alias": "Download",
           "groupBy": [
             {
               "params": [
@@ -672,16 +685,18 @@
               "type": "fill"
             }
           ],
-          "measurement": "weather_data",
+          "measurement": "download",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"measurement\" WHERE (\"host\" =~ /^$host$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "temp"
+                  "value"
                 ],
                 "type": "field"
               },
@@ -691,14 +706,74 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=",
+              "value": "local"
+            }
+          ]
+        },
+        {
+          "alias": "Upload",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "upload",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"upload\" WHERE \"host\" =~ /^[[host]]$/ and $timeFilter GROUP BY time($interval) fill(null)",
+          "rawQuery": false,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=",
+              "value": "local"
+            }
+          ]
         }
       ],
-      "thresholds": [],
+      "thresholds": [
+        {
+          "colorMode": "critical",
+          "fill": false,
+          "line": true,
+          "op": "gt",
+          "value": 200,
+          "yaxis": "left"
+        }
+      ],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Outside temperature",
+      "title": "Upload / Download",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -714,7 +789,7 @@
       },
       "yaxes": [
         {
-          "format": "short",
+          "format": "Mbits",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -722,12 +797,12 @@
           "show": true
         },
         {
-          "format": "short",
+          "format": "Mbits",
           "label": null,
           "logBase": 1,
           "max": null,
           "min": null,
-          "show": true
+          "show": false
         }
       ],
       "yaxis": {
@@ -744,7 +819,7 @@
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
-        "h": 5,
+        "h": 7,
         "w": 12,
         "x": 0,
         "y": 8
@@ -983,12 +1058,16 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
+                  "color": "dark-orange",
                   "value": null
                 },
                 {
-                  "color": "red",
-                  "value": 80
+                  "color": "dark-green",
+                  "value": 30
+                },
+                {
+                  "color": "super-light-blue",
+                  "value": 50
                 }
               ]
             },
@@ -1033,7 +1112,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
@@ -1088,12 +1167,16 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
+                  "color": "dark-orange",
                   "value": null
                 },
                 {
-                  "color": "red",
-                  "value": 80
+                  "color": "dark-green",
+                  "value": 30
+                },
+                {
+                  "color": "super-light-blue",
+                  "value": 50
                 }
               ]
             },
@@ -1138,7 +1221,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
@@ -1193,12 +1276,16 @@
               "mode": "absolute",
               "steps": [
                 {
-                  "color": "green",
+                  "color": "dark-orange",
                   "value": null
                 },
                 {
-                  "color": "red",
-                  "value": 80
+                  "color": "dark-green",
+                  "value": 30
+                },
+                {
+                  "color": "super-light-blue",
+                  "value": 50
                 }
               ]
             },
@@ -1243,7 +1330,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
@@ -1264,38 +1351,45 @@
     {
       "aliasColors": {},
       "bars": false,
+      "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
-      "fill": 1,
+      "datasource": "TelegrafDB",
+      "description": "",
+      "fill": 0,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 6,
         "w": 12,
         "x": 0,
-        "y": 13
+        "y": 15
       },
       "hiddenSeries": false,
-      "id": 14,
+      "id": 20,
       "legend": {
-        "alignAsTable": false,
         "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
+        "current": true,
+        "max": true,
+        "min": true,
         "show": true,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
-      "linewidth": 2,
+      "linewidth": 1,
       "links": [],
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
+        "dataLinks": [
+          {
+            "title": "",
+            "url": ""
+          }
+        ]
       },
       "percentage": false,
-      "pointradius": 5,
+      "pluginVersion": "6.7.2",
+      "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [],
@@ -1304,7 +1398,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Download",
+          "alias": "Outside tmp",
           "groupBy": [
             {
               "params": [
@@ -1319,18 +1413,16 @@
               "type": "fill"
             }
           ],
-          "measurement": "download",
+          "measurement": "weather_data",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"value\") FROM \"measurement\" WHERE (\"host\" =~ /^$host$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
-          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "temp"
                 ],
                 "type": "field"
               },
@@ -1340,74 +1432,14 @@
               }
             ]
           ],
-          "tags": [
-            {
-              "key": "host",
-              "operator": "=",
-              "value": "local"
-            }
-          ]
-        },
-        {
-          "alias": "Upload",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "upload",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"value\") FROM \"upload\" WHERE \"host\" =~ /^[[host]]$/ and $timeFilter GROUP BY time($interval) fill(null)",
-          "rawQuery": false,
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "host",
-              "operator": "=",
-              "value": "local"
-            }
-          ]
+          "tags": []
         }
       ],
-      "thresholds": [
-        {
-          "colorMode": "critical",
-          "fill": false,
-          "line": true,
-          "op": "gt",
-          "value": 200,
-          "yaxis": "left"
-        }
-      ],
+      "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Upload / Download",
+      "title": "Outside temperature",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1423,7 +1455,7 @@
       },
       "yaxes": [
         {
-          "format": "Mbits",
+          "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -1431,12 +1463,12 @@
           "show": true
         },
         {
-          "format": "Mbits",
+          "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
           "min": null,
-          "show": false
+          "show": true
         }
       ],
       "yaxis": {
@@ -1476,5 +1508,5 @@
   "variables": {
     "list": []
   },
-  "version": 17
+  "version": 22
 }
