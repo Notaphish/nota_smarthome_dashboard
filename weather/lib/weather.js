@@ -1,4 +1,6 @@
 const got = require("got");
+const _ = require("lodash");
+const { getOpenWeatherFieldPathsIndexedByKey } = require("./field_mapper");
 
 const { OW_API_KEY } = process.env;
 const OW_UNITS = process.env.OW_UNITS || "metric";
@@ -6,7 +8,7 @@ const OW_UNITS = process.env.OW_UNITS || "metric";
 async function fetchWeatherData(weatherQuery) {
   const weatherData = await fetchWeatherJson(weatherQuery);
 
-  return { temp: weatherData.main.temp, feels_like: weatherData.main.feels_like };
+  return extractWeatherFieldsIndexByKey(weatherData);
 }
 
 async function fetchWeatherJson(weatherQuery) {
@@ -25,6 +27,12 @@ function generateURLForQuery(weatherQuery) {
   } else {
     return `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${OW_UNITS}&APPID=${OW_API_KEY}`;
   }
+}
+
+function extractWeatherFieldsIndexByKey(weatherJson) {
+  return _.mapValues(getOpenWeatherFieldPathsIndexedByKey(), (field_path) =>
+    _.get(weatherJson, field_path)
+  );
 }
 
 module.exports = fetchWeatherData;
