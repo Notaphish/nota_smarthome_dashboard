@@ -1,0 +1,4 @@
+{
+  "temp": { "openweather_field_path": "main.temp" },
+  "feels_like": { "openweather_field_path": "main.feels_like" }
+}
