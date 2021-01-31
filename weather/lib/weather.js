@@ -6,7 +6,7 @@ const OW_UNITS = process.env.OW_UNITS || "metric";
 async function fetchWeatherData(weatherQuery) {
   const weatherData = await fetchWeatherJson(weatherQuery);
 
-  return { temp: weatherData.main.temp };
+  return { temp: weatherData.main.temp, feels_like: weatherData.main.feels_like };
 }
 
 async function fetchWeatherJson(weatherQuery) {

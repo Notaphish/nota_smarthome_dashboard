@@ -586,6 +586,7 @@
       "pluginVersion": "6.7.2",
       "targets": [
         {
+          "alias": "Feels like",
           "groupBy": [
             {
               "params": [
@@ -609,7 +610,7 @@
             [
               {
                 "params": [
-                  "temp"
+                  "feels_like"
                 ],
                 "type": "field"
               },
@@ -1433,6 +1434,43 @@
             ]
           ],
           "tags": []
+        },
+        {
+          "alias": "Feels like",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "weather_data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "feels_like"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
         }
       ],
       "thresholds": [],
@@ -1508,5 +1546,5 @@
   "variables": {
     "list": []
   },
-  "version": 22
+  "version": 24
 }

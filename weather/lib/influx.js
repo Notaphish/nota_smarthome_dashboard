@@ -8,7 +8,8 @@ const influx = new InfluxDB({
     schema: [{
         measurement: "weather_data",
         fields: {
-            temp: FieldType.FLOAT
+            temp: FieldType.FLOAT,
+            feels_like: FieldType.FLOAT
         },
         tags: []
     }]
@@ -19,7 +20,7 @@ const influx = new InfluxDB({
  * @param weatherData json blob of weather data
  */
 async function writeToInfluxdb (weatherData){
-    await influx.writePoints([{measurement: "weather_data", fields: {temp: weatherData.temp}}]);
+    await influx.writePoints([{measurement: "weather_data", fields: {...weatherData}}]);
     console.log("Wrote weather data to influxdb")
 }
 
