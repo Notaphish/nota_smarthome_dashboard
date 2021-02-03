@@ -4,7 +4,7 @@ build-weather:
 	$(docker-path) build ./weather -t nota_weather
 
 run-weather:
-	$(docker-path) run \
+	$(docker-path) run --rm \
 	--network="container:influxdb" \
 	nota_weather
 
@@ -14,9 +14,9 @@ build-octograph:
 from_date := $(shell date --date="2 days ago" +"%Y-%m-%d")
 to_date :=$(shell date --iso-8601=seconds)
 
-run-octograph: 
-	$(docker-path) run \
-	--volume=/home/pi/projects/home_dashboard/octograph/octograph.ini:/usr/src/app/octograph.ini \
+run-octograph:
+	$(docker-path) run --rm \
+	--volume=$(PWD)/octograph/octograph.ini:/usr/src/app/octograph.ini \
 	--network="container:influxdb" \
 	octograph --from-date=$(from_date) --to-date=$(to_date)
 
