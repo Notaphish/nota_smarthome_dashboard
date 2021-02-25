@@ -1,5 +1,7 @@
 docker-path=/usr/bin/docker
 
+SELF_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
+
 build-weather:
 	$(docker-path) build ./weather -t nota_weather
 
@@ -21,7 +23,7 @@ run-octograph:
 	octograph --from-date=$(from_date) --to-date=$(to_date)
 
 
-compose_command=/usr/local/bin/docker-compose -f docker-compose.yml -f speedtest-grafana/docker-compose.yml -f ruuvitag/docker-compose.yml
+compose_command=/usr/local/bin/docker-compose -f $(SELF_DIR)docker-compose.yml -f $(SELF_DIR)speedtest-grafana/docker-compose.yml -f $(SELF_DIR)ruuvitag/docker-compose.yml
 
 compose-up:
 	$(compose_command) up -d
