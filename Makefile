@@ -23,7 +23,7 @@ run-octograph:
 	octograph --from-date=$(from_date) --to-date=$(to_date)
 
 
-compose_command=/usr/local/bin/docker-compose -f $(SELF_DIR)docker-compose.yml -f $(SELF_DIR)speedtest-grafana/docker-compose.yml -f $(SELF_DIR)ruuvitag/docker-compose.yml
+compose_command=/usr/local/bin/docker-compose -f $(SELF_DIR)docker-compose.yml -f $(SELF_DIR)speedtest-grafana/docker-compose.yml -f $(SELF_DIR)ruuvitag/docker-compose.yml -f $(SELF_DIR)pihole/docker-compose.yml
 
 compose-up:
 	$(compose_command) up -d
