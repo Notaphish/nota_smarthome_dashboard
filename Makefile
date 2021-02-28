@@ -18,7 +18,7 @@ to_date :=$(shell date --iso-8601=seconds)
 
 run-octograph:
 	$(docker-path) run --rm \
-	--volume=$(PWD)/octograph/octograph.ini:/usr/src/app/octograph.ini \
+	--volume=$(SELF_DIR)/octograph/octograph.ini:/usr/src/app/octograph.ini \
 	--network="container:influxdb" \
 	octograph --from-date=$(from_date) --to-date=$(to_date)
 
